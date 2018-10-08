@@ -1,6 +1,39 @@
+html {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("/img/mario-bg.png") no-repeat;
+  background-position: bottom;
+  background-color: #95e8f3;
+  min-height: 100%;
+}
+
+form {
+  padding: 5px 20px;
+  margin-top: 60px;
+  button,
+  h5 {
+    margin: 20px 0;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    &:not(.browser-default):focus:not([readonly]) {
+      border-color: #ec407a;
+      box-shadow: none;
+    }
+  }
+  .materialize-textarea:focus:not([readonly]) {
+    border-color: #ec407a;
+    box-shadow: none;
+  }
+  label.active {
+    color: #ec407a !important;
+  }
 }
