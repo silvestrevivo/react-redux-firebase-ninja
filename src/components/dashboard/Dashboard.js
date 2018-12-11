@@ -43,3 +43,5 @@ export default compose(
   ),
   firestoreConnect([{ collection: "projects" }])
 )(Dashboard);
+// Using firestoreConnect, we are listening to the collection projects to
+// see if something is changing there to be sycronized => Observable

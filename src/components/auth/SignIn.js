@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { signIn } from "../../store/actions/authActions";
+import { signIn, resetErrorAuth } from "../../store/actions/authActions";
 import { Redirect } from "react-router-dom";
 
 class SignIn extends Component {
@@ -19,6 +19,10 @@ class SignIn extends Component {
     e.preventDefault();
     this.props.signIn(this.state);
   };
+
+  componentWillUnmount() {
+    this.props.resetErrorAuth()
+  }
 
   render() {
     const { authError, auth } = this.props;
@@ -60,5 +64,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { signIn }
+  { signIn, resetErrorAuth }
 )(SignIn);

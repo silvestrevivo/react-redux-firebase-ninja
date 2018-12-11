@@ -38,6 +38,7 @@ const ProjectDetails = props => {
 };
 
 const mapStateToProps = (state, ownProps) => {
+  // ownProps are the props of the own component
   const id = ownProps.match.params.id;
   const projects = state.firestore.data.projects;
   return {

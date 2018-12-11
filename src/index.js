@@ -26,6 +26,7 @@ const store = createStore(
   )
 );
 
+// this prevents to load the dom previous authentication
 store.firebaseAuthIsReady.then(() => {
   ReactDOM.render(
     <Provider store={store}>

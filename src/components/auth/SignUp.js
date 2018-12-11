@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { signUp } from "../../store/actions/authActions";
+import { signUp, resetErrorAuth } from "../../store/actions/authActions";
 
 class SignUp extends Component {
   state = {
@@ -21,6 +21,10 @@ class SignUp extends Component {
     e.preventDefault();
     this.props.signUp(this.state);
   };
+
+  componentWillUnmount() {
+    this.props.resetErrorAuth()
+  }
 
   render() {
     const { auth, authError } = this.props;
@@ -63,12 +67,12 @@ class SignUp extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.firebase.auth,
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    auth: state.firebase.auth
   };
 };
 
 export default connect(
   mapStateToProps,
-  { signUp }
+  { signUp, resetErrorAuth }
 )(SignUp);

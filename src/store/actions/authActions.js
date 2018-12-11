@@ -53,3 +53,7 @@ export const signUp = newUser => {
       });
   };
 };
+
+export const resetErrorAuth = () => {
+  return { type: 'RESET_ERROR_AUTH' };
+}
